@@ -13,7 +13,7 @@ export default function ContactForm() {
     const data = Object.fromEntries(formData);
 
     try {
-      const response = await fetch("https://formsubmit.co/your@email.com", {
+      const response = await fetch("https://formsubmit.co/inkedinnoir@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
