@@ -10,36 +10,38 @@ export default function ContactForm() {
     setStatus("submitting");
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const restaurant = formData.get("restaurant");
-    const message = formData.get("message");
-
-    const mailtoLink = `mailto:inkedinnoir@gmail.com?subject=New%20Restaurant%20Submission:%20${restaurant}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
+    const data = Object.fromEntries(formData);
 
     try {
-      window.location.href = mailtoLink;
-      setStatus("success");
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+       });
+
+      if (response.ok) {
+        setStatus("success");
+       } else {
+        setStatus("error");
+       }
       } catch {
       setStatus("error");
       }
-    };
+     };
 
   if (status === "success") {
     return (
-        <div className="text-center bg-green-50 p-6 rounded-xl">
-          <svg className="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <p className="text-green-800 font-semibold text-lg">Opening your email client...</p>
-          <p className="text-gray-600 mt-2 text-sm">Please send the email to: inkedinnoir@gmail.com</p>
-          <button
+       <div className="text-center bg-green-50 p-6 rounded-xl">
+         <svg className="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+         <p className="text-green-800 font-semibold text-lg">Thank you! Your submission has been received.</p>
+         <button
           onClick={() => setStatus("idle")}
           className="mt-4 text-green-600 hover:underline font-medium"
-          >
-          Try again
-          </button>
-        </div>
+         >
+          Submit another
+         </button>
+       </div>
       );
     }
 
@@ -102,11 +104,8 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors disabled:opacity-50"
         >
-          {status === "submitting" ? "Opening email..." : "Submit Restaurant"}
+          {status === "submitting" ? "Sending..." : "Submit Restaurant"}
         </button>
-        <p className="text-xs text-gray-500 text-center mt-2">
-          This will open your email client with a pre-filled message to inkedinnoir@gmail.com
-        </p>
       </form>
     );
 }
