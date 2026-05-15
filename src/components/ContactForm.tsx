@@ -11,7 +11,7 @@ export default function ContactForm() {
       >
        <input type="hidden" name="_subject" value="New Restaurant Submission" />
        <input type="hidden" name="_captcha" value="false" />
-       <input type="hidden" name="_next" value="http://localhost:3000/thanks" />
+       <input type="hidden" name="_next" value="/thanks" />
 
        <div>
          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
