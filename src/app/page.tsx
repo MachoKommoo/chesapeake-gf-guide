@@ -249,12 +249,9 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
             Have you been to a restaurant in Chesapeake that should be included?
             </p>
-            <a
-              href="mailto:your@email.com"
-              className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-            >
-              Submit a Restaurant
-            </a>
+            <p className="text-gray-500">
+            We'd love to hear from you! Keep an eye out for a contact form coming soon.
+            </p>
           </div>
         </section>
 
