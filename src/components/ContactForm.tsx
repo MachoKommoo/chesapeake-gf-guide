@@ -10,8 +10,10 @@ export default function ContactForm() {
       className="max-w-md mx-auto space-y-4"
       >
        <input type="hidden" name="_subject" value="New Restaurant Submission" />
+        <input type="hidden" name="_mode" value="email" />
        <input type="hidden" name="_captcha" value="false" />
-       <input type="hidden" name="_next" value="/thanks" />
+       <input type="hidden" name="_autoresponse" value="Thank you for your restaurant recommendation! We will review your submission and get back to you soon." />
+       <input type="hidden" name="_disable_page" value="true" />
 
        <div>
          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
