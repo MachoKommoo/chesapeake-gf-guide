@@ -18,13 +18,12 @@ Restaurant: ${restaurant}
 Message: ${message}
     `;
 
-    const response = await fetch("https://api.web3forms.com/redirect", {
+    const response = await fetch("https://api.web3forms.com/submit/0be3cced-4182-4e7b-a3ef-f837e78f24b5", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
        },
       body: JSON.stringify({
-        access_key: process.env.WEB3FORMS_ACCESS_KEY,
         from_name: name as string,
         email: email as string,
         subject: `New Restaurant Submission: ${restaurant}`,
