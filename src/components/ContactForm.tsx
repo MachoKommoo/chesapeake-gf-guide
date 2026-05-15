@@ -9,7 +9,7 @@ export default function ContactForm() {
       method="POST"
       className="max-w-md mx-auto space-y-4"
     >
-      <input type="hidden" name="access_key" value="0be3cced-4182-4e7b-a3ef-f837e78f24b5" />
+      <input type="hidden" name="access_key" value="9cd76859-a711-4b1b-bb2d-007355f03e17" />
       <input type="hidden" name="redirect" value={`${window.location.origin}/thanks`} />
       <input type="hidden" name="from_name" value="Restaurant Submission" />
 
