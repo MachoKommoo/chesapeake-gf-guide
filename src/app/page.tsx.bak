@@ -76,7 +76,7 @@ export default function Home() {
                 <div className="p-8">
                   <div className="flex items-start gap-6">
                     <div className="flex-1">
-                      <p className="text-gray-700 text-lg mb-4 line-clamp-2">{featured.about}</p>
+                      <p className="text-gray-700 text-lg mb-4">{featured.about}</p>
                       <div className="flex gap-2 mb-4">
                         {featured.gfFriendly && (
                           <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">
