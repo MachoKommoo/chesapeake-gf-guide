@@ -16,29 +16,28 @@ Name: ${name}
 Email: ${email}
 Restaurant: ${restaurant}
 Message: ${message}
-    `;
+       `;
 
-    const response = await fetch("https://api.web3forms.com/submit/0be3cced-4182-4e7b-a3ef-f837e78f24b5", {
+    const response = await fetch("https://api.web3forms.com/redirect", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        from_name: name as string,
-        email: email as string,
-        subject: `New Restaurant Submission: ${restaurant}`,
-        message: emailBody,
-        redirect: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/thanks`,
-        }),
-      });
+         access_key: "0be3cced-4182-4e7b-a3ef-f837e78f24b5",
+         from_name: name as string,
+         email: email as string,
+         subject: `New Restaurant Submission: ${restaurant}`,
+         message: emailBody,
+         redirect: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/thanks`,
+           }),
+        });
 
     if (response.ok) {
       return NextResponse.json({ success: true });
-       }
+         }
 
-    const errorText = await response.text();
-    console.error("Web3Forms error:", errorText);
-    return NextResponse.json({ success: false, error: "Failed to send email", details: errorText }, { status: 500 });
-    } catch (error) {
+    return NextResponse.json({ success: false, error: "Failed to send email" }, { status: 500 });
+      } catch (error) {
     console.error("Contact form error:", error);
-    return NextResponse.json({ success: false, error: "Internal server error", details: String(error) }, { status: 500 });
-    }
+    return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 });
+      }
 }
