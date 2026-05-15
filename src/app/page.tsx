@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { restaurants } from "@/data/restaurants";
 import React from "react";
+import ContactForm from "@/components/ContactForm";
 
 // Get featured restaurant (one with active featuredUntil date)
 function getFeaturedRestaurant() {
@@ -181,7 +182,7 @@ export default function Home() {
                 <Link
                   key={restaurant.id}
                   href={`/restaurant/${restaurant.slug}`}
-                  className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden border-2 border-transparent hover:border-emerald-500"
+                  className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-emerald-500 transform hover:-translate-y-1"
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-4">
@@ -246,12 +247,13 @@ export default function Home() {
 
           {/* Submit Restaurant CTA */}
           <div className="text-center mt-16">
-            <p className="text-gray-600 mb-4">
-            Have you been to a restaurant in Chesapeake that should be included?
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Have you been to a restaurant that should be included?
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">
+            We'd love to hear from you! Submit a restaurant recommendation using the form below.
             </p>
-            <p className="text-gray-500">
-            We'd love to hear from you! Keep an eye out for a contact form coming soon.
-            </p>
+            <ContactForm />
           </div>
         </section>
 
