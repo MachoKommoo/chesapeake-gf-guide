@@ -15,15 +15,10 @@ export default function ContactForm() {
     const restaurant = formData.get("restaurant");
     const message = formData.get("message");
 
-    try {
-      // Use /redirect endpoint for better bot challenge handling
-      const web3formsUrl = `https://api.web3forms.com/redirect?access_key=9cd76859-a711-4b1b-bb2d-007355f03e17&from_name=${encodeURIComponent(name as string)}&email=${encodeURIComponent(email as string)}&subject=New%20Restaurant%20Submission%3A%20${encodeURIComponent(restaurant as string)}&message=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRestaurant: ${restaurant}\nMessage: ${message}`)}&redirect=${encodeURIComponent(`${window.location.origin}/thanks`)}`;
+    const mailtoUrl = `mailto:inkedinnoir@gmail.com?subject=New%20Restaurant%20Submission%3A%20${encodeURIComponent(restaurant as string)}&body=Name%3A%20${encodeURIComponent(name as string)}%0AEmail%3A%20${encodeURIComponent(email as string)}%0ARestaurant%3A%20${encodeURIComponent(restaurant as string)}%0AMessage%3A%20${encodeURIComponent(message as string)}`;
 
-      window.location.href = web3formsUrl;
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    window.location.href = mailtoUrl;
+    setStatus("success");
   };
 
   if (status === "success") {
@@ -32,8 +27,8 @@ export default function ContactForm() {
         <svg className="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <p className="text-green-800 font-semibold text-lg">Redirecting to Web3Forms...</p>
-        <p className="text-gray-600 mt-2 text-sm">Please wait while we send your submission.</p>
+        <p className="text-green-800 font-semibold text-lg">Opening your email client...</p>
+        <p className="text-gray-600 mt-2 text-sm">Please click "Send" in your email app.</p>
         <button
           onClick={() => setStatus("idle")}
           className="mt-4 text-green-600 hover:underline font-medium"
@@ -42,7 +37,7 @@ export default function ContactForm() {
         </button>
       </div>
     );
-  }
+   }
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
@@ -102,9 +97,9 @@ export default function ContactForm() {
         type="submit"
         disabled={status === "submitting"}
         className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors disabled:opacity-50"
-      >
-        {status === "submitting" ? "Sending..." : "Submit Restaurant"}
-      </button>
-    </form>
-  );
+       >
+        {status === "submitting" ? "Opening Email..." : "Submit Restaurant"}
+       </button>
+     </form>
+   );
 }
