@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { restaurants } from "@/data/restaurants";
 import React from "react";
-import ContactForm from "@/components/ContactForm";
 
 // Get featured restaurant (one with active featuredUntil date)
 function getFeaturedRestaurant() {
@@ -19,18 +18,18 @@ function filterRestaurants(searchTerm: string, filters: {
   dedicatedFryer: boolean;
 }) {
   return restaurants.filter((r) => {
-      // Search filter
+       // Search filter
     if (searchTerm && !r.name.toLowerCase().includes(searchTerm.toLowerCase())) {
       return false;
-    }
+     }
 
-      // Category filters
+       // Category filters
     if (filters.gfMenu && !r.gfFriendly) return false;
     if (filters.celiacSafe && !r.celiacSafe) return false;
     if (filters.dedicatedFryer && !r.dedicatedFryer) return false;
 
     return true;
-  });
+   });
 }
 
 export default function Home() {
@@ -40,245 +39,234 @@ export default function Home() {
     gfMenu: false,
     celiacSafe: false,
     dedicatedFryer: false,
-  });
+   });
 
   const filteredRestaurants = filterRestaurants(searchTerm, filters);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-20">
-          <div className="max-w-6xl mx-auto px-4 text-center">
-            <h1 className="text-5xl font-bold mb-4">
-              757 Safe Eats: Chesapeake
-            </h1>
-            <p className="text-xl mb-8 opacity-90">
+         {/* Hero Section */}
+         <section className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-20">
+           <div className="max-w-6xl mx-auto px-4 text-center">
+             <h1 className="text-5xl font-bold mb-4">
+               757 Safe Eats: Chesapeake
+             </h1>
+             <p className="text-xl mb-8 opacity-90">
             The definitive guide to safe, delicious gluten-free dining in Chesapeake, Virginia and the 757 area code.
-            </p>
-            <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <p className="text-sm opacity-80">
-                {restaurants.length} restaurants reviewed &middot; {(restaurants.reduce((sum, r) => sum + r.rating, 0) / restaurants.length).toFixed(1)} avg rating
-              </p>
-            </div>
-          </div>
-        </section>
+             </p>
+             <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg p-6">
+               <p className="text-sm opacity-80">
+                 {restaurants.length} restaurants reviewed &middot; {(restaurants.reduce((sum, r) => sum + r.rating, 0) / restaurants.length).toFixed(1)} avg rating
+               </p>
+             </div>
+           </div>
+         </section>
 
-        {/* Featured Restaurant of the Week */}
-        {featured && (
-          <section className="bg-gradient-to-r from-amber-500 to-orange-500 py-12">
-            <div className="max-w-6xl mx-auto px-4">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-4 flex items-center">
-                  <div>
-                    <p className="text-sm font-medium opacity-90">FEATURED THIS WEEK</p>
-                    <h2 className="text-2xl font-bold">{featured.name}</h2>
-                  </div>
-                </div>
-                <div className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-1">
-                      <p className="text-gray-700 text-lg mb-4 line-clamp-2">{featured.about}</p>
-                      <div className="flex gap-2 mb-4">
-                        {featured.gfFriendly && (
-                          <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">
+         {/* Featured Restaurant of the Week */}
+         {featured && (
+           <section className="bg-gradient-to-r from-amber-500 to-orange-500 py-12">
+             <div className="max-w-6xl mx-auto px-4">
+               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                 <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-4 flex items-center">
+                   <div>
+                     <p className="text-sm font-medium opacity-90">FEATURED THIS WEEK</p>
+                     <h2 className="text-2xl font-bold">{featured.name}</h2>
+                   </div>
+                 </div>
+                 <div className="p-8">
+                   <div className="flex items-start gap-6">
+                     <div className="flex-1">
+                       <p className="text-gray-700 text-lg mb-4 line-clamp-2">{featured.about}</p>
+                       <div className="flex gap-2 mb-4">
+                         {featured.gfFriendly && (
+                           <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">
                           GF Menu
-                          </span>
-                        )}
-                        {featured.dedicatedFryer && (
-                          <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">
+                           </span>
+                         )}
+                         {featured.dedicatedFryer && (
+                           <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">
                           Dedicated Fryer
-                          </span>
-                        )}
-                        {featured.celiacSafe && (
-                          <span className="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">
+                           </span>
+                         )}
+                         {featured.celiacSafe && (
+                           <span className="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">
                           Celiac Safe
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full">
-                          <span className="text-2xl font-bold">{featured.rating}</span>
-                          <span className="ml-2">/5 Rating</span>
-                        </div>
-                        <Link
-                        href={`/restaurant/${featured.slug}`}
-                        className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-                          >
-                          View Full Details &rarr;
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+                           </span>
+                         )}
+                       </div>
+                       <div className="flex items-center gap-4">
+                         <div className="flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full">
+                           <span className="text-2xl font-bold">{featured.rating}</span>
+                           <span className="ml-2">/5 Rating</span>
+                         </div>
+                         <Link
+                            href={`/restaurant/${featured.slug}`}
+                            className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+                           >
+                           View Full Details &rarr;
+                         </Link>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </section>
+         )}
 
-        {/* Search and Filter Section */}
-        <section className="max-w-6xl mx-auto px-4 py-12">
-          {/* Search Bar */}
-          <div className="mb-8">
-            <input
+         {/* Search and Filter Section */}
+         <section className="max-w-6xl mx-auto px-4 py-12">
+           {/* Search Bar */}
+           <div className="mb-8">
+             <input
               type="text"
               placeholder="Search restaurants..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full max-w-2xl px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none text-lg shadow-sm"
-            />
-          </div>
+             />
+           </div>
 
-          {/* Filter Buttons */}
-          <div className="flex gap-4 mb-8 flex-wrap">
-            <button
+           {/* Filter Buttons */}
+           <div className="flex gap-4 mb-8 flex-wrap">
+             <button
               onClick={() => setFilters({ ...filters, gfMenu: !filters.gfMenu })}
               className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                 filters.gfMenu
-                  ? "bg-green-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {filters.gfMenu ? "✓ GF Menu" : "GF Menu"}
-            </button>
-            <button
+                   ? "bg-green-600 text-white"
+                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+               }`}
+             >
+               {filters.gfMenu ? "✓ GF Menu" : "GF Menu"}
+             </button>
+             <button
               onClick={() => setFilters({ ...filters, celiacSafe: !filters.celiacSafe })}
               className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                 filters.celiacSafe
-                  ? "bg-purple-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {filters.celiacSafe ? "✓ Celiac Safe" : "Celiac Safe"}
-            </button>
-            <button
+                   ? "bg-purple-600 text-white"
+                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+               }`}
+             >
+               {filters.celiacSafe ? "✓ Celiac Safe" : "Celiac Safe"}
+             </button>
+             <button
               onClick={() => setFilters({ ...filters, dedicatedFryer: !filters.dedicatedFryer })}
               className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                 filters.dedicatedFryer
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {filters.dedicatedFryer ? "✓ Dedicated Fryer" : "Dedicated Fryer"}
-            </button>
-            {(filters.gfMenu || filters.celiacSafe || filters.dedicatedFryer) && (
-              <button
+                   ? "bg-blue-600 text-white"
+                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+               }`}
+             >
+               {filters.dedicatedFryer ? "✓ Dedicated Fryer" : "Dedicated Fryer"}
+             </button>
+             {(filters.gfMenu || filters.celiacSafe || filters.dedicatedFryer) && (
+               <button
                 onClick={() => setFilters({ gfMenu: false, celiacSafe: false, dedicatedFryer: false })}
                 className="px-6 py-3 rounded-xl font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all"
-              >
+               >
                 Clear Filters
-              </button>
-            )}
-          </div>
+               </button>
+             )}
+           </div>
 
-          {/* Restaurant Grid */}
-          <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              {searchTerm || filters.gfMenu || filters.celiacSafe || filters.dedicatedFryer
-                ? `Found ${filteredRestaurants.length} restaurants`
-                : "All Restaurants"}
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredRestaurants.map((restaurant) => (
-                <Link
+           {/* Restaurant Grid */}
+           <section>
+             <h2 className="text-3xl font-bold text-gray-900 mb-8">
+               {searchTerm || filters.gfMenu || filters.celiacSafe || filters.dedicatedFryer
+                 ? `Found ${filteredRestaurants.length} restaurants`
+                 : "All Restaurants"}
+             </h2>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {filteredRestaurants.map((restaurant) => (
+                 <Link
                   key={restaurant.id}
                   href={`/restaurant/${restaurant.slug}`}
                   className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-emerald-500 transform hover:-translate-y-1"
-                >
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                          {restaurant.name}
-                        </h3>
-                        <p className="text-gray-500 text-sm">{restaurant.cuisine}</p>
-                      </div>
-                      <div className="flex items-center bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
-                        <span className="text-lg font-bold">{restaurant.rating}</span>
-                        <span className="text-sm ml-1">/5</span>
-                      </div>
-                    </div>
+                 >
+                   <div className="p-6">
+                     <div className="flex justify-between items-start mb-4">
+                       <div>
+                         <h3 className="text-xl font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                           {restaurant.name}
+                         </h3>
+                         <p className="text-gray-500 text-sm">{restaurant.cuisine}</p>
+                       </div>
+                       <div className="flex items-center bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+                         <span className="text-lg font-bold">{restaurant.rating}</span>
+                         <span className="text-sm ml-1">/5</span>
+                       </div>
+                     </div>
 
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                      {restaurant.about}
-                    </p>
+                     <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                       {restaurant.about}
+                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {restaurant.gfFriendly && (
-                        <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
+                     <div className="flex flex-wrap gap-2 mb-4">
+                       {restaurant.gfFriendly && (
+                         <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
                         GF Menu
-                        </span>
-                      )}
-                      {restaurant.dedicatedFryer && (
-                        <span className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
+                         </span>
+                       )}
+                       {restaurant.dedicatedFryer && (
+                         <span className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
                         Dedicated Fryer
-                        </span>
-                      )}
-                      {restaurant.celiacSafe && (
-                        <span className="inline-flex items-center px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">
+                         </span>
+                       )}
+                       {restaurant.celiacSafe && (
+                         <span className="inline-flex items-center px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">
                         Celiac Safe
-                        </span>
-                      )}
-                    </div>
+                         </span>
+                       )}
+                     </div>
 
-                    <div className="flex items-center text-sm text-gray-500">
-                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span className="truncate">{restaurant.address}</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                     <div className="flex items-center text-sm text-gray-500">
+                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                       </svg>
+                       <span className="truncate">{restaurant.address}</span>
+                     </div>
+                   </div>
+                 </Link>
+               ))}
+             </div>
 
-            {filteredRestaurants.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No restaurants found matching your criteria.</p>
-                <button
+             {filteredRestaurants.length === 0 && (
+               <div className="text-center py-12">
+                 <p className="text-gray-500 text-lg">No restaurants found matching your criteria.</p>
+                 <button
                   onClick={() => { setSearchTerm(""); setFilters({ gfMenu: false, celiacSafe: false, dedicatedFryer: false }); }}
                   className="mt-4 text-emerald-600 hover:underline font-semibold"
-                >
+                 >
                   Clear all filters
-                </button>
-              </div>
-            )}
-          </section>
+                 </button>
+               </div>
+             )}
+           </section>
+         </section>
 
-          {/* Submit Restaurant CTA */}
-          <div className="text-center mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Have you been to a restaurant that should be included?
-            </h2>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto">
-            We'd love to hear from you! Submit a restaurant recommendation using the form below.
-            </p>
-            <ContactForm />
-          </div>
-        </section>
-
-        {/* About This Guide */}
-        <section className="max-w-4xl mx-auto px-4 py-16">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">About This Guide</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+         {/* About This Guide */}
+         <section className="max-w-4xl mx-auto px-4 py-16">
+           <div className="bg-white rounded-2xl shadow-lg p-8">
+             <h2 className="text-3xl font-bold text-gray-900 mb-4">About This Guide</h2>
+             <p className="text-gray-700 leading-relaxed mb-4">
             As someone with gluten sensitivity, I know how challenging it can be to find restaurants
             that truly understand your needs. This guide is my passion project to help the Chesapeake
             community dine with confidence and peace of mind.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
+             </p>
+             <p className="text-gray-700 leading-relaxed">
             Every restaurant in this guide has been personally reviewed by me and my wife. We look at
             menu options, staff knowledge, kitchen safety practices, and most importantly - the food!
-            </p>
-          </div>
-        </section>
+             </p>
+           </div>
+         </section>
 
-        {/* Footer */}
-        <footer className="bg-gray-900 text-white py-8">
-          <div className="max-w-6xl mx-auto px-4 text-center">
-            <p className="opacity-70">&copy; 2024 757 Safe Eats: Chesapeake. Built with care for our local community.</p>
-          </div>
-        </footer>
-      </main>
-  );
+         {/* Footer */}
+         <footer className="bg-gray-900 text-white py-8">
+           <div className="max-w-6xl mx-auto px-4 text-center">
+             <p className="opacity-70">&copy; 2024 757 Safe Eats: Chesapeake. Built with care for our local community.</p>
+           </div>
+         </footer>
+       </main>
+    );
 }
