@@ -1,262 +1,272 @@
 [
-          {
-                    "id": "1",
-                    "name": "The Cheesecake Factory",
-                    "slug": "the-cheesecake-factory",
-                    "address": "1400 Town Center Rd, Suite 170, Suffolk, VA 23434",
-                    "cuisine": "American",
-                    "rating": 4.5,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "The Cheesecake Factory is a beloved destination for food lovers seeking an extensive menu with something for everyone. Known for their famous cheesecakes, they also offer a wide variety of American classics and international dishes. The restaurant features a warm, inviting atmosphere perfect for family gatherings, dates, or casual dinners with friends. With over 250 items on their menu, there's always something new to discover. Their commitment to quality ingredients and creative preparations makes every visit memorable. The staff is attentive and knowledgeable, ensuring a delightful dining experience from start to finish.",
-                    "gfHighlights": [
-                              "GF pasta available",
-                              "GF desserts including cheesecakes",
-                              "Large menu with GF icons"
-                    ],
-                    "safetyNotes": "They have a GF menu but no dedicated fryer. Cross-contact possible.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-01-15",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "2",
-                    "name": "P.F. Chang's",
-                    "slug": "pf-changs",
-                    "address": "2355 Highwoods Blvd, Virginia Beach, VA 23464",
-                    "cuisine": "Asian",
-                    "rating": 4.0,
-                    "gfFriendly": true,
-                    "dedicatedFryer": true,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "P.F. Chang's brings authentic Asian-inspired cuisine to the Virginia Beach area with a modern twist. The restaurant features a stylish, contemporary interior that creates a welcoming ambiance for diners of all ages. Known for their fresh ingredients and bold flavors, P.F. Chang's offers everything from crispy egg rolls to flavorful stir-fries. The menu showcases the best of Asian cuisine with options for every palate. Their knowledgeable staff is well-versed in the menu and happy to make recommendations. Whether you're craving Mongolian beef or vegetable spring rolls, P.F. Chang's delivers consistent quality and great service.",
-                    "gfHighlights": [
-                              "GF noodles available",
-                              "Dedicated GF fryer",
-                              "GF menu available"
-                    ],
-                    "safetyNotes": "They use separate fryer for GF items. Still not celiac-safe facility.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-01-20",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "3",
-                    "name": "The Capital Grille",
-                    "slug": "the-capital-grille",
-                    "address": "200 High St, Norfolk, VA 23510",
-                    "cuisine": "Steakhouse",
-                    "rating": 5.0,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$$$",
-                    "about": "The Capital Grille is Norfolk's premier upscale steakhouse, offering an exceptional dining experience in an elegant setting. Known for their dry-aged steaks and fresh seafood, they combine classic techniques with innovative preparations. The sophisticated atmosphere makes it perfect for special occasions, business dinners, or romantic evenings. Their extensive wine list complements the menu perfectly, with knowledgeable sommeliers on hand to guide your selections. The attentive service and attention to detail ensure every visit feels special. From their famous lobster mac and cheese to perfectly seared filets, every dish is crafted with care and premium ingredients.",
-                    "gfHighlights": [
-                              "GF menu available",
-                              "Knowledgeable staff",
-                              "High-quality GF options"
-                    ],
-                    "safetyNotes": "Very careful with allergies but not a GF-only facility.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-02-01",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "4",
-                    "name": "Neat Bird Chicken & Whiskey",
-                    "slug": "neat-bird-chicken-whiskey",
-                    "address": "565 Belaire Ave, Chesapeake, VA 23320",
-                    "cuisine": "Chicken & Whiskey",
-                    "rating": 5.0,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "Neat Bird Chicken & Whiskey brings a fun, energetic vibe to the Chesapeake dining scene. Specializing in crispy, golden fried chicken paired with an extensive whiskey and cocktail selection, this spot is perfect for a night out with friends. The restaurant features a lively atmosphere with modern decor, making it ideal for casual dates, groups, or celebrating special occasions. Their signature dishes include the famous Neat Bird fried chicken platter, loaded with flavor and available in gluten-free options for those with dietary restrictions. The whiskey list spans from classic bourbons to rare imports, with knowledgeable staff ready to help you find the perfect pairing for your meal. Whether you're craving their signature hot chicken or a perfectly crafted cocktail, Neat Bird delivers an unforgettable dining experience.",
-                    "gfHighlights": [
-                              "Gluten-free fried chicken",
-                              "Wide selection of whiskeys and cocktails",
-                              "Fun, lively atmosphere"
-                    ],
-                    "safetyNotes": "They take GF orders seriously with careful prep. The fried chicken is excellent and they're knowledgeable about allergies. Call ahead for best results.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-03-10",
-                    "featuredUntil": "2026-05-31"
-          },
-          {
-                    "id": "5",
-                    "name": "Studly Brewing Company",
-                    "slug": "studly-brewing-company",
-                    "address": "1801 N Great Bridge Rd, Chesapeake, VA 23320",
-                    "cuisine": "Brewery & Pizza",
-                    "rating": 4.5,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "Studly Brewing Company is a local craft brewery and brewpub in Chesapeake, offering handcrafted IPAs and other beers alongside a full menu of pub favorites. The brewery features a casual, welcoming atmosphere perfect for groups, dates, or family dinners. Their signature pizzas are made in-house with quality ingredients, and they offer a gluten-free cauliflower thin crust option for those with dietary restrictions. The beer cheese, unique pizza creations, and craft beer selection make Studly a popular spot for beer lovers and foodies alike.",
-                    "gfHighlights": [
-                              "Gluten-free cauliflower crust available",
-                              "GF beer options",
-                              "Knowledgeable staff about allergens"
-                    ],
-                    "safetyNotes": "They offer GF cauliflower crust as a substitute for pizza. Prepared in a common kitchen, so cross-contact is possible. Inform your server about allergies.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-04-15",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "6",
-                    "name": "Great Pizza Co.",
-                    "slug": "great-pizza-co",
-                    "address": "8384 Cedar Rd, Suite 5, Chesapeake, VA 23322",
-                    "cuisine": "Pizza",
-                    "rating": 4.0,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "Great Pizza Co. is a neighborhood pizzeria in Chesapeake's Cedar Lakes Shopping Center, known for using only the highest quality fresh ingredients. The restaurant offers a variety of pizzas and Italian favorites in a casual, family-friendly atmosphere. Their commitment to quality ingredients and fresh preparations makes every visit enjoyable. The staff is attentive and happy to accommodate special dietary requests, making it a good option for families and groups looking for reliable pizza.",
-                    "gfHighlights": [
-                              "Gluten-free cauliflower thin crust available",
-                              "Fresh ingredients",
-                              "Accommodating staff"
-                    ],
-                    "safetyNotes": "They offer GF cauliflower crust as an option. Prepared in a common kitchen, so cross-contact is possible. Let your server know about allergies.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-03-20",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "7",
-                    "name": "Taqueria La Patrona",
-                    "slug": "taqueria-la-patrona",
-                    "address": "648 Grassfield Pkwy #9, Chesapeake, VA 23323",
-                    "cuisine": "Mexican",
-                    "rating": 4.0,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$",
-                    "about": "Taqueria La Patrona is a popular Mexican restaurant chain with locations throughout the 757 area, including Chesapeake, Norfolk, and Virginia Beach. Known for authentic tacos, burritos, and Mexican favorites, the restaurant offers a casual, family-friendly dining experience. Many of their menu items are naturally gluten-free, including corn tortillas, rice dishes, and grilled meats, making it a convenient option for gluten-sensitive diners. The affordable prices and generous portions make it a go-to spot for quick, satisfying meals.",
-                    "gfHighlights": [
-                              "Corn tortillas (naturally GF)",
-                              "Rice-based dishes GF-friendly",
-                              "Grilled meats safe option"
-                    ],
-                    "safetyNotes": "Many items are naturally gluten-free like corn tortillas and rice dishes. However, they do not specifically advertise as celiac-safe. Cross-contact possible in the kitchen.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-02-28",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "8",
-                    "name": "Red Robin Gourmet Burgers & Fries",
-                    "slug": "red-robin-gourmet-burgers",
-                    "address": "1390 Greenbrier Pkwy, Chesapeake, VA 23320",
-                    "cuisine": "American Burgers",
-                    "rating": 4.5,
-                    "gfFriendly": true,
-                    "dedicatedFryer": true,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "Red Robin is a well-known casual dining chain with locations across the country, including Chesapeake. Famous for their unlimited fries and gourmet burgers, the restaurant offers a wide variety of menu options in a family-friendly atmosphere. Red Robin prides itself on accommodating special requests, with gluten-free buns available for burgers and a dedicated fryer for fries. Their extensive menu includes burgers, sandwiches, salads, and signature items like the Bottomless Steak Frites, making it a popular choice for families and groups.",
-                    "gfHighlights": [
-                              "Gluten-free burger buns available",
-                              "Dedicated fryer for fries",
-                              "Allergen menu available"
-                    ],
-                    "safetyNotes": "They offer GF burger buns and have a dedicated fryer. However, they prepare food in a common kitchen, so cross-contact is possible. Their allergen information is available for detailed ingredient checks.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-03-05",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "9",
-                    "name": "Metro Diner",
-                    "slug": "metro-diner",
-                    "address": "1500 Volvo Pkwy, Chesapeake, VA 23320",
-                    "cuisine": "Diner & Breakfast",
-                    "rating": 4.0,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "Metro Diner is a classic American diner with locations in Chesapeake, Suffolk, and other areas. Known for serving breakfast all day, brunch, lunch, and dinner, the diner offers a nostalgic, family-friendly atmosphere with classic diner fare. Their menu includes breakfast favorites like fried chicken and waffles, as well as lunch and dinner options. Metro Diner prides itself on unmatched cleanliness and standard service, making it a reliable choice for families and groups looking for comfort food in a casual setting.",
-                    "gfHighlights": [
-                              "Breakfast all day",
-                              "Various GF-friendly options available",
-                              "Clean, family-friendly atmosphere"
-                    ],
-                    "safetyNotes": "They offer various GF-friendly options, particularly for breakfast items. However, they do not advertise as celiac-safe. Cross-contact possible in the kitchen. Call ahead for best results.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-02-15",
-                    "featuredUntil": null
-          },
-          {
-                    "id": "10",
-                    "name": "Mission BBQ",
-                    "slug": "mission-bbq",
-                    "address": "1329 N Battlefield Blvd, Suite 150, Chesapeake, VA 23320",
-                    "cuisine": "BBQ",
-                    "rating": 4.5,
-                    "gfFriendly": true,
-                    "dedicatedFryer": false,
-                    "celiacSafe": false,
-                    "priceRange": "$$",
-                    "about": "Mission BBQ is a popular BBQ restaurant chain with locations throughout Virginia and other states, including Chesapeake. Known for their signature smoked meats, the restaurant offers a patriotic, welcoming atmosphere that celebrates military and first responder culture. Their menu features smoked brisket, ribs, pulled pork, and other BBQ favorites alongside sides and salads. Many of their menu items are naturally gluten-free, making it a convenient option for gluten-sensitive diners looking for quality BBQ.",
-                    "gfHighlights": [
-                              "Many naturally GF items (meats, sides)",
-                              "Gluten-free menu available",
-                              "Patriotic, welcoming atmosphere"
-                    ],
-                    "safetyNotes": "Many menu items are naturally gluten-free including their smoked meats and many sides. They provide allergen information for detailed ingredient checks. However, they do not advertise as celiac-safe facilities.",
-                    "photos": [
-                              "placeholder.svg",
-                              "placeholder.svg",
-                              "placeholder.svg"
-                    ],
-                    "lastVisited": "2024-04-01",
-                    "featuredUntil": null
-          }
+           {
+                     "id": "1",
+                     "name": "The Cheesecake Factory",
+                     "slug": "the-cheesecake-factory",
+                     "address": "1400 Town Center Rd, Suite 170, Suffolk, VA 23434",
+                     "cuisine": "American",
+                     "rating": 4.5,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "The Cheesecake Factory is a beloved destination for food lovers seeking an extensive menu with something for everyone. Known for their famous cheesecakes, they also offer a wide variety of American classics and international dishes. The restaurant features a warm, inviting atmosphere perfect for family gatherings, dates, or casual dinners with friends. With over 250 items on their menu, there's always something new to discover. Their commitment to quality ingredients and creative preparations makes every visit memorable. The staff is attentive and knowledgeable, ensuring a delightful dining experience from start to finish.",
+                     "gfHighlights": [
+                               "GF pasta available",
+                               "GF desserts including cheesecakes",
+                               "Large menu with GF icons"
+                     ],
+                     "safetyNotes": "They have a GF menu but no dedicated fryer. Cross-contact possible.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-01-15",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "2",
+                     "name": "P.F. Chang's",
+                     "slug": "pf-changs",
+                     "address": "2355 Highwoods Blvd, Virginia Beach, VA 23464",
+                     "cuisine": "Asian",
+                     "rating": 4.0,
+                     "gfFriendly": true,
+                     "dedicatedFryer": true,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "P.F. Chang's brings authentic Asian-inspired cuisine to the Virginia Beach area with a modern twist. The restaurant features a stylish, contemporary interior that creates a welcoming ambiance for diners of all ages. Known for their fresh ingredients and bold flavors, P.F. Chang's offers everything from crispy egg rolls to flavorful stir-fries. The menu showcases the best of Asian cuisine with options for every palate. Their knowledgeable staff is well-versed in the menu and happy to make recommendations. Whether you're craving Mongolian beef or vegetable spring rolls, P.F. Chang's delivers consistent quality and great service.",
+                     "gfHighlights": [
+                               "GF noodles available",
+                               "Dedicated GF fryer",
+                               "GF menu available"
+                     ],
+                     "safetyNotes": "They use separate fryer for GF items. Still not celiac-safe facility.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-01-20",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "3",
+                     "name": "The Capital Grille",
+                     "slug": "the-capital-grille",
+                     "address": "200 High St, Norfolk, VA 23510",
+                     "cuisine": "Steakhouse",
+                     "rating": 5.0,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$$$",
+                     "about": "The Capital Grille is Norfolk's premier upscale steakhouse, offering an exceptional dining experience in an elegant setting. Known for their dry-aged steaks and fresh seafood, they combine classic techniques with innovative preparations. The sophisticated atmosphere makes it perfect for special occasions, business dinners, or romantic evenings. Their extensive wine list complements the menu perfectly, with knowledgeable sommeliers on hand to guide your selections. The attentive service and attention to detail ensure every visit feels special. From their famous lobster mac and cheese to perfectly seared filets, every dish is crafted with care and premium ingredients.",
+                     "gfHighlights": [
+                               "GF menu available",
+                               "Knowledgeable staff",
+                               "High-quality GF options"
+                     ],
+                     "safetyNotes": "Very careful with allergies but not a GF-only facility.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-02-01",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "4",
+                     "name": "Neat Bird Chicken & Whiskey",
+                     "slug": "neat-bird-chicken-whiskey",
+                     "address": "565 Belaire Ave, Chesapeake, VA 23320",
+                     "cuisine": "Chicken & Whiskey",
+                     "rating": 5.0,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "Neat Bird Chicken & Whiskey brings a fun, energetic vibe to the Chesapeake dining scene. Specializing in crispy, golden fried chicken paired with an extensive whiskey and cocktail selection, this spot is perfect for a night out with friends. The restaurant features a lively atmosphere with modern decor, making it ideal for casual dates, groups, or celebrating special occasions. Their signature dishes include the famous Neat Bird fried chicken platter, loaded with flavor and available in gluten-free options for those with dietary restrictions. The whiskey list spans from classic bourbons to rare imports, with knowledgeable staff ready to help you find the perfect pairing for your meal. Whether you're craving their signature hot chicken or a perfectly crafted cocktail, Neat Bird delivers an unforgettable dining experience.",
+                     "gfHighlights": [
+                               "Gluten-free fried chicken",
+                               "Wide selection of whiskeys and cocktails",
+                               "Fun, lively atmosphere"
+                     ],
+                     "safetyNotes": "They take GF orders seriously with careful prep. The fried chicken is excellent and they're knowledgeable about allergies. Call ahead for best results.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-03-10",
+                     "featuredUntil": "2026-05-31",
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "5",
+                     "name": "Studly Brewing Company",
+                     "slug": "studly-brewing-company",
+                     "address": "1801 N Great Bridge Rd, Chesapeake, VA 23320",
+                     "cuisine": "Brewery & Pizza",
+                     "rating": 4.5,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "Studly Brewing Company is a local craft brewery and brewpub in Chesapeake, offering handcrafted IPAs and other beers alongside a full menu of pub favorites. The brewery features a casual, welcoming atmosphere perfect for groups, dates, or family dinners. Their signature pizzas are made in-house with quality ingredients, and they offer a gluten-free cauliflower thin crust option for those with dietary restrictions. The beer cheese, unique pizza creations, and craft beer selection make Studly a popular spot for beer lovers and foodies alike.",
+                     "gfHighlights": [
+                               "Gluten-free cauliflower crust available",
+                               "GF beer options",
+                               "Knowledgeable staff about allergens"
+                     ],
+                     "safetyNotes": "They offer GF cauliflower crust as a substitute for pizza. Prepared in a common kitchen, so cross-contact is possible. Inform your server about allergies.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-04-15",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "6",
+                     "name": "Great Pizza Co.",
+                     "slug": "great-pizza-co",
+                     "address": "8384 Cedar Rd, Suite 5, Chesapeake, VA 23322",
+                     "cuisine": "Pizza",
+                     "rating": 4.0,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "Great Pizza Co. is a neighborhood pizzeria in Chesapeake's Cedar Lakes Shopping Center, known for using only the highest quality fresh ingredients. The restaurant offers a variety of pizzas and Italian favorites in a casual, family-friendly atmosphere. Their commitment to quality ingredients and fresh preparations makes every visit enjoyable. The staff is attentive and happy to accommodate special dietary requests, making it a good option for families and groups looking for reliable pizza.",
+                     "gfHighlights": [
+                               "Gluten-free cauliflower thin crust available",
+                               "Fresh ingredients",
+                               "Accommodating staff"
+                     ],
+                     "safetyNotes": "They offer GF cauliflower crust as an option. Prepared in a common kitchen, so cross-contact is possible. Let your server know about allergies.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-03-20",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "7",
+                     "name": "Taqueria La Patrona",
+                     "slug": "taqueria-la-patrona",
+                     "address": "648 Grassfield Pkwy #9, Chesapeake, VA 23323",
+                     "cuisine": "Mexican",
+                     "rating": 4.0,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$",
+                     "about": "Taqueria La Patrona is a popular Mexican restaurant chain with locations throughout the 757 area, including Chesapeake, Norfolk, and Virginia Beach. Known for authentic tacos, burritos, and Mexican favorites, the restaurant offers a casual, family-friendly dining experience. Many of their menu items are naturally gluten-free, including corn tortillas, rice dishes, and grilled meats, making it a convenient option for gluten-sensitive diners. The affordable prices and generous portions make it a go-to spot for quick, satisfying meals.",
+                     "gfHighlights": [
+                               "Corn tortillas (naturally GF)",
+                               "Rice-based dishes GF-friendly",
+                               "Grilled meats safe option"
+                     ],
+                     "safetyNotes": "Many items are naturally gluten-free like corn tortillas and rice dishes. However, they do not specifically advertise as celiac-safe. Cross-contact possible in the kitchen.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-02-28",
+                     "featuredUntil": null,
+                     "serverKnowledge": false
+           },
+           {
+                     "id": "8",
+                     "name": "Red Robin Gourmet Burgers & Fries",
+                     "slug": "red-robin-gourmet-burgers",
+                     "address": "1390 Greenbrier Pkwy, Chesapeake, VA 23320",
+                     "cuisine": "American Burgers",
+                     "rating": 4.5,
+                     "gfFriendly": true,
+                     "dedicatedFryer": true,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "Red Robin is a well-known casual dining chain with locations across the country, including Chesapeake. Famous for their unlimited fries and gourmet burgers, the restaurant offers a wide variety of menu options in a family-friendly atmosphere. Red Robin prides itself on accommodating special requests, with gluten-free buns available for burgers and a dedicated fryer for fries. Their extensive menu includes burgers, sandwiches, salads, and signature items like the Bottomless Steak Frites, making it a popular choice for families and groups.",
+                     "gfHighlights": [
+                               "Gluten-free burger buns available",
+                               "Dedicated fryer for fries",
+                               "Allergen menu available"
+                     ],
+                     "safetyNotes": "They offer GF burger buns and have a dedicated fryer. However, they prepare food in a common kitchen, so cross-contact is possible. Their allergen information is available for detailed ingredient checks.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-03-05",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           },
+           {
+                     "id": "9",
+                     "name": "Metro Diner",
+                     "slug": "metro-diner",
+                     "address": "1500 Volvo Pkwy, Chesapeake, VA 23320",
+                     "cuisine": "Diner & Breakfast",
+                     "rating": 4.0,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "Metro Diner is a classic American diner with locations in Chesapeake, Suffolk, and other areas. Known for serving breakfast all day, brunch, lunch, and dinner, the diner offers a nostalgic, family-friendly atmosphere with classic diner fare. Their menu includes breakfast favorites like fried chicken and waffles, as well as lunch and dinner options. Metro Diner prides itself on unmatched cleanliness and standard service, making it a reliable choice for families and groups looking for comfort food in a casual setting.",
+                     "gfHighlights": [
+                               "Breakfast all day",
+                               "Various GF-friendly options available",
+                               "Clean, family-friendly atmosphere"
+                     ],
+                     "safetyNotes": "They offer various GF-friendly options, particularly for breakfast items. However, they do not advertise as celiac-safe. Cross-contact possible in the kitchen. Call ahead for best results.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-02-15",
+                     "featuredUntil": null,
+                     "serverKnowledge": false
+           },
+           {
+                     "id": "10",
+                     "name": "Mission BBQ",
+                     "slug": "mission-bbq",
+                     "address": "1329 N Battlefield Blvd, Suite 150, Chesapeake, VA 23320",
+                     "cuisine": "BBQ",
+                     "rating": 4.5,
+                     "gfFriendly": true,
+                     "dedicatedFryer": false,
+                     "celiacSafe": false,
+                     "priceRange": "$$",
+                     "about": "Mission BBQ is a popular BBQ restaurant chain with locations throughout Virginia and other states, including Chesapeake. Known for their signature smoked meats, the restaurant offers a patriotic, welcoming atmosphere that celebrates military and first responder culture. Their menu features smoked brisket, ribs, pulled pork, and other BBQ favorites alongside sides and salads. Many of their menu items are naturally gluten-free, making it a convenient option for gluten-sensitive diners looking for quality BBQ.",
+                     "gfHighlights": [
+                               "Many naturally GF items (meats, sides)",
+                               "Gluten-free menu available",
+                               "Patriotic, welcoming atmosphere"
+                     ],
+                     "safetyNotes": "Many menu items are naturally gluten-free including their smoked meats and many sides. They provide allergen information for detailed ingredient checks. However, they do not advertise as celiac-safe facilities.",
+                     "photos": [
+                               "placeholder.svg",
+                               "placeholder.svg",
+                               "placeholder.svg"
+                     ],
+                     "lastVisited": "2024-04-01",
+                     "featuredUntil": null,
+                     "serverKnowledge": true
+           }
 ]

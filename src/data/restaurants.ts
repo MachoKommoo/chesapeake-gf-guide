@@ -17,6 +17,7 @@ export interface Restaurant {
   photos: string[];
   lastVisited: string;
   featuredUntil: string | null;
+  serverKnowledge: boolean;
 }
 
 export const restaurants: Restaurant[] = restaurantsData;

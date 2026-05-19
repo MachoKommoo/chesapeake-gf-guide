@@ -36,6 +36,16 @@ function getUniqueCuisines() {
   return Array.from(categories).sort();
 }
 
+// Calculate objective safety score (0-4) based on verifiable facts
+function calculateSafetyScore(restaurant: typeof restaurants[0]): number {
+  let score = 0;
+  if (restaurant.gfFriendly) score++;
+  if (restaurant.dedicatedFryer) score++;
+  if (restaurant.celiacSafe) score++;
+  if (restaurant.serverKnowledge) score++;
+  return score;
+}
+
 // Filter restaurants based on search, category, and cuisine
 function filterRestaurants(searchTerm: string, filters: {
   gfMenu: boolean;
@@ -73,6 +83,7 @@ export default function Home() {
 
   const filteredRestaurants = filterRestaurants(searchTerm, filters, selectedCuisine);
   const cuisines = getUniqueCuisines();
+  const avgSafetyScore = (restaurants.reduce((sum, r) => sum + calculateSafetyScore(r), 0) / restaurants.length).toFixed(1);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -87,7 +98,7 @@ export default function Home() {
           </p>
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg p-6">
             <p className="text-sm opacity-80">
-              {restaurants.length} restaurants reviewed &middot; {(restaurants.reduce((sum, r) => sum + r.rating, 0) / restaurants.length).toFixed(1)} avg rating
+              {restaurants.length} restaurants reviewed &middot; {avgSafetyScore}/4 avg safety score
             </p>
           </div>
         </div>
@@ -127,8 +138,8 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
-                        <span className="text-2xl font-bold">{featured.rating}</span>
-                        <span className="ml-2">/5 Rating</span>
+                        <span className="text-2xl font-bold">{calculateSafetyScore(featured)}/4</span>
+                        <span className="ml-2">Safety Score</span>
                       </div>
                       <Link
                         href={`/restaurant/${featured.slug}`}
@@ -251,8 +262,8 @@ export default function Home() {
                       <p className="text-gray-500 text-sm">{restaurant.cuisine}</p>
                     </div>
                     <div className="flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
-                      <span className="text-lg font-bold">{restaurant.rating}</span>
-                      <span className="text-sm ml-1">/5</span>
+                      <span className="text-lg font-bold">{calculateSafetyScore(restaurant)}/4</span>
+                      <span className="text-sm ml-1">Safety</span>
                     </div>
                   </div>
 
