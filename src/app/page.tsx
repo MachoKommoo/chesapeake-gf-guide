@@ -11,10 +11,29 @@ function getFeaturedRestaurant() {
   return featured || null;
 }
 
+// Map restaurant cuisine to standardized category
+function getCuisineCategory(cuisine: string): string {
+  const categoryMap: Record<string, string> = {
+    "American": "American",
+    "Diner & Breakfast": "American",
+    "Steakhouse": "American",
+    "American Burgers": "Burgers",
+    "Pizza": "Pizza",
+    "Brewery & Pizza": "Pizza",
+    "Asian": "Asian",
+    "BBQ": "BBQ",
+    "Mexican": "Mexican",
+    "Chicken & Whiskey": "Chicken",
+  };
+  return categoryMap[cuisine] || "American";
+}
+
 // Get unique cuisines from restaurants
 function getUniqueCuisines() {
-  const cuisines = new Set(restaurants.map((r) => r.cuisine));
-  return ["All", ...Array.from(cuisines).sort()];
+  const categories = new Set<string>();
+  categories.add("All");
+  restaurants.forEach((r) => categories.add(getCuisineCategory(r.cuisine)));
+  return Array.from(categories).sort();
 }
 
 // Filter restaurants based on search, category, and cuisine
@@ -35,7 +54,7 @@ function filterRestaurants(searchTerm: string, filters: {
     if (filters.dedicatedFryer && !r.dedicatedFryer) return false;
 
     // Cuisine filter
-    if (selectedCuisine !== "All" && r.cuisine !== selectedCuisine) return false;
+    if (selectedCuisine !== "All" && getCuisineCategory(r.cuisine) !== selectedCuisine) return false;
 
     return true;
   });
