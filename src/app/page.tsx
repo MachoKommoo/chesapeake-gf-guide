@@ -122,17 +122,17 @@ export default function Home() {
                     <div className="flex gap-2 mb-4">
                       {featured.gfFriendly && (
                         <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">
-                          GF Menu
+                          GF menu
                         </span>
                       )}
                       {featured.dedicatedFryer && (
                         <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full">
-                          Dedicated Fryer
+                          Dedicated GF fryer
                         </span>
                       )}
                       {featured.celiacSafe && (
                         <span className="inline-flex items-center px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">
-                          Celiac Safe
+                          Celiac-safe
                         </span>
                       )}
                     </div>
@@ -179,7 +179,7 @@ export default function Home() {
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            {filters.gfMenu ? "✓ GF Menu" : "GF Menu"}
+            {filters.gfMenu ? "✓ GF menu" : "GF menu"}
           </button>
           <button
             onClick={() => setFilters({ ...filters, celiacSafe: !filters.celiacSafe })}
@@ -189,7 +189,7 @@ export default function Home() {
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            {filters.celiacSafe ? "✓ Celiac Safe" : "Celiac Safe"}
+            {filters.celiacSafe ? "✓ Celiac-safe" : "Celiac-safe"}
           </button>
           <button
             onClick={() => setFilters({ ...filters, dedicatedFryer: !filters.dedicatedFryer })}
@@ -199,7 +199,7 @@ export default function Home() {
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            {filters.dedicatedFryer ? "✓ Dedicated Fryer" : "Dedicated Fryer"}
+            {filters.dedicatedFryer ? "✓ Dedicated GF fryer" : "Dedicated GF fryer"}
           </button>
           {(filters.gfMenu || filters.celiacSafe || filters.dedicatedFryer) && (
             <button
@@ -274,17 +274,17 @@ export default function Home() {
                   <div className="flex flex-wrap gap-2 mb-4">
                     {restaurant.gfFriendly && (
                       <span className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
-                        GF Menu
+                        GF menu
                       </span>
                     )}
                     {restaurant.dedicatedFryer && (
                       <span className="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded">
-                        Dedicated Fryer
+                        Dedicated GF fryer
                       </span>
                     )}
                     {restaurant.celiacSafe && (
                       <span className="inline-flex items-center px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded">
-                        Celiac Safe
+                        Celiac-safe
                       </span>
                     )}
                   </div>
