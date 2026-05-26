@@ -5,6 +5,7 @@ export interface Restaurant {
   name: string;
   slug: string;
   address: string;
+  city: string;
   cuisine: string;
   rating: number;
   gfFriendly: boolean;

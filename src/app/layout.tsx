@@ -45,7 +45,7 @@ export default function RootLayout({
                 Restaurants
                  </Link>
                  <Link
-                href="/"
+                href="/submit-restaurant"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
                  >
                 Submit Restaurant
