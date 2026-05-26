@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { restaurants } from "@/data/restaurants";
 import React from "react";
+import SafetyScoreTooltip from "@/components/SafetyScoreTooltip";
+import RestaurantMap from "@/components/RestaurantMap";
 
 // Get featured restaurant (one with active featuredUntil date)
 function getFeaturedRestaurant() {
@@ -36,6 +38,14 @@ function getUniqueCuisines() {
   return Array.from(categories).sort();
 }
 
+// Get unique cities from restaurants
+function getUniqueCities() {
+  const cities = new Set<string>();
+  cities.add("All");
+  restaurants.forEach((r) => cities.add(r.city));
+  return Array.from(cities).sort();
+}
+
 // Calculate objective safety score (0-4) based on verifiable facts
 function calculateSafetyScore(restaurant: typeof restaurants[0]): number {
   let score = 0;
@@ -51,7 +61,7 @@ function filterRestaurants(searchTerm: string, filters: {
   gfMenu: boolean;
   celiacSafe: boolean;
   dedicatedFryer: boolean;
-}, selectedCuisine: string) {
+}, selectedCuisine: string, selectedCity: string) {
   return restaurants.filter((r) => {
     // Search filter
     if (searchTerm && !r.name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -66,6 +76,10 @@ function filterRestaurants(searchTerm: string, filters: {
     // Cuisine filter
     if (selectedCuisine !== "All" && getCuisineCategory(r.cuisine) !== selectedCuisine) return false;
 
+
+  // City filter
+  if (selectedCity !== "All" && r.city !== selectedCity) return false;
+
     return true;
   });
 }
@@ -79,9 +93,13 @@ export default function Home() {
     dedicatedFryer: false,
   });
   const [selectedCuisine, setSelectedCuisine] = React.useState<string>("All");
+  const [selectedCity, setSelectedCity] = React.useState<string>("All");
+  const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
+  const [viewMode, setViewMode] = React.useState<"list" | "map">("list");
   const restaurantsSectionRef = React.useRef<HTMLElement>(null);
 
-  const filteredRestaurants = filterRestaurants(searchTerm, filters, selectedCuisine);
+  const filteredRestaurants = filterRestaurants(searchTerm, filters, selectedCuisine, selectedCity);
+  const cities = getUniqueCities();
   const cuisines = getUniqueCuisines();
   const avgSafetyScore = (restaurants.reduce((sum, r) => sum + calculateSafetyScore(r), 0) / restaurants.length).toFixed(1);
 
@@ -99,6 +117,15 @@ export default function Home() {
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg p-6">
             <p className="text-sm opacity-80">
               {restaurants.length} restaurants reviewed &middot; {avgSafetyScore}/4 avg safety score
+                  <button
+                  onClick={() => setIsTooltipOpen(true)}
+                  className="ml-2 inline-flex items-center justify-center w-5 h-5 text-blue-200 hover:text-blue-100 rounded-full border border-blue-300 hover:bg-blue-50 transition-colors"
+                  aria-label="Learn how we calculate safety scores"
+                 >
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a1 1 0 011 1v4.586a.25.25 0 01-.146.234l-3 1.5a.75.75 0 00.444 1.356h2.702a.75.75 0 00.75-.75v-4.5a1 1 0 011-1zm-2.5 6.5a.75.75 0 100 1.5.75.75 0 000-1.5z" clipRule="evenodd" />
+                    </svg>
+                  </button>
             </p>
           </div>
         </div>
