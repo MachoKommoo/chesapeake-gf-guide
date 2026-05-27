@@ -1,7 +1,23 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import dynamic from "next/dynamic";
 import { restaurants } from "@/data/restaurants";
+
+const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {
+  ssr: false,
+  loading: () => <div className="bg-white rounded-xl p-8 text-center">Loading map...</div>
+});
+const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
+  ssr: false,
+});
+const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), {
+  ssr: false,
+  loading: () => null,
+});
+const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
+  ssr: false,
+});
+
 import L from "leaflet";
 
 // Fix for Leaflet icon issue in Next.js

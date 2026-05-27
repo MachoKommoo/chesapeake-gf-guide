@@ -3,8 +3,16 @@
 import Link from "next/link";
 import { restaurants } from "@/data/restaurants";
 import React from "react";
-import SafetyScoreTooltip from "@/components/SafetyScoreTooltip";
-import RestaurantMap from "@/components/RestaurantMap";
+import dynamic from "next/dynamic";
+
+const SafetyScoreTooltip = dynamic(() => import("@/components/SafetyScoreTooltip"), {
+  ssr: false,
+  loading: () => null,
+});
+const RestaurantMap = dynamic(() => import("@/components/RestaurantMap"), {
+  ssr: false,
+  loading: () => <div className="bg-white rounded-xl p-8 text-center">Loading map...</div>
+});
 
 // Get featured restaurant (one with active featuredUntil date)
 function getFeaturedRestaurant() {
@@ -266,6 +274,34 @@ export default function Home() {
           )}
         </div>
 
+           {/* City Filter */}
+           <div className="mb-8">
+             <p className="text-sm font-semibold text-gray-600 mb-3">City</p>
+             <div className="flex gap-3 flex-wrap">
+               {cities.map((city) => (
+                 <button
+                  key={city}
+                  onClick={() => setSelectedCity(city)}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                    selectedCity === city
+                        ? "bg-emerald-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                 >
+                   {city}
+                 </button>
+               ))}
+             </div>
+             {selectedCity !== "All" && (
+               <button
+                onClick={() => setSelectedCity("All")}
+                className="mt-2 text-sm text-emerald-600 hover:underline"
+               >
+                Clear city filter
+               </button>
+             )}
+           </div>
+
         {/* Restaurant Grid */}
         <section ref={restaurantsSectionRef}>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
@@ -341,6 +377,137 @@ export default function Home() {
           )}
         </section>
       </section>
+
+
+          {/* View Toggle */}
+          <div className="flex gap-4 mb-6">
+            <button
+              onClick={() => setViewMode("list")}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                viewMode === "list"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              List View
+            </button>
+            <button
+              onClick={() => setViewMode("map")}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                viewMode === "map"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              Map View
+            </button>
+          </div>
+
+          {/* Restaurant Grid */}
+          {viewMode === "list" && (
+            <section ref={restaurantsSectionRef}>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                {searchTerm || filters.gfMenu || filters.celiacSafe || filters.dedicatedFryer || selectedCuisine !== "All" || selectedCity !== "All"
+                  ? `Found ${filteredRestaurants.length} restaurants`
+                  : "All Restaurants"}
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredRestaurants.map((restaurant) => (
+                  <Link
+                    key={restaurant.id}
+                    href={`/restaurant/${restaurant.slug}`}
+                    className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-blue-500 transform hover:-translate-y-1"
+                  >
+                    <div className="p-6">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                            {restaurant.name}
+                          </h3>
+                          <p className="text-gray-500 text-sm">{restaurant.cuisine}</p>
+                        </div>
+                        <div className="flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                          <span className="text-lg font-bold">{calculateSafetyScore(restaurant)}/4</span>
+                          <span className="text-sm ml-1">Safety</span>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                        {restaurant.about}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {restaurant.gfFriendly && (
+                          <span className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
+                            GF menu
+                          </span>
+                        )}
+                        {restaurant.dedicatedFryer && (
+                          <span className="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded">
+                            Dedicated GF fryer
+                          </span>
+                        )}
+                        {restaurant.celiacSafe && (
+                          <span className="inline-flex items-center px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded">
+                            Celiac-safe
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex items-center text-sm text-gray-500">
+                        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span className="truncate">{restaurant.address}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {filteredRestaurants.length === 0 && (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 text-lg">No restaurants found matching your criteria.</p>
+                  <button
+                    onClick={() => { setSearchTerm(""); setFilters({ gfMenu: false, celiacSafe: false, dedicatedFryer: false }); setSelectedCuisine("All"); setSelectedCity("All"); }}
+                    className="mt-4 text-blue-600 hover:underline font-semibold"
+                  >
+                    Clear all filters
+                  </button>
+                </div>
+              )}
+            </section>
+          )}
+
+          {/* Map View */}
+          {viewMode === "map" && (
+            <RestaurantMap restaurants={filteredRestaurants} selectedCity={selectedCity} />
+          )}
+
+          {/* Safety Score Tooltip Modal */}
+          {isTooltipOpen && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setIsTooltipOpen(false)}>
+              <div className="bg-white rounded-xl p-8 max-w-md mx-4" onClick={(e) => e.stopPropagation()}>
+                <h3 className="text-xl font-bold mb-4">How We Calculate Safety Scores</h3>
+                <p className="text-gray-700 mb-4">
+                  Each restaurant receives a score from 0-4 based on verifiable gluten-free safety features:
+                </p>
+                <ul className="text-sm text-gray-600 space-y-2 mb-6">
+                  <li><strong>1 point:</strong> Offers gluten-free menu options</li>
+                  <li><strong>1 point:</strong> Uses dedicated fryer for gluten-free items</li>
+                  <li><strong>1 point:</strong> Staff trained on celiac safety</li>
+                  <li><strong>1 point:</strong> Certified celiac-safe facility</li>
+                </ul>
+                <button
+                  onClick={() => setIsTooltipOpen(false)}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                >
+                  Got it
+                </button>
+              </div>
+            </div>
+          )}
 
       {/* About This Guide */}
       <section className="max-w-4xl mx-auto px-4 py-16">
